@@ -1,0 +1,29 @@
+{% extends "MainApp/base.html" %}
+
+{% block content %}
+
+<p>Pizza: {{ pizza }}</p>
+
+<img src="{{ pizza.img }}" />
+
+<ul>
+    {% for t in toppings %}
+
+    <li>{{ t }}</li>
+    {% empty %}
+    <li>no toppings</li>
+    {% endfor %}
+</ul>
+
+<ul>
+    {% for c in comments %}
+
+    <li>Anonymous commented: {{ c.text }}</li>
+    {% empty %}
+    <li>no comments</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'MainApp:new_comment'%}">Add a comment</a>
+
+{% endblock content %}
